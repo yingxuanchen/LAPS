@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>View Leave Application</title>
+<th:block th:include="layout/Header"></th:block>
+<th:block th:include="layout/SideBar"></th:block>
+</head>
+<body>
+<div class="main" th:object="${leave}">
+	<h2>Leave Application Details</h2>
+	<a th:href="${'/leave/edit/' + leave.id}">Edit</a>
+	&ensp;|&ensp;
+	<a th:href="${'/leave/delete/' + leave.id}">Delete</a>
+	<br/><br/>
+	<table class="table table-striped">
+	    <tr>
+	    	<th>Type</th>
+	    	<td th:text="*{leaveType}"></td>
+	    </tr>
+	    <tr>
+	    	<th>Start Date</th>
+	    	<td th:text="*{startDate}"></td>
+	    </tr>
+	    <tr>
+	    	<th>End Date</th>
+	    	<td th:text="*{endDate}"></td>
+	    </tr>
+	    <tr>
+	    	<th>Number of Days</th>
+	    	<td th:text="*{numOfDays}"></td>
+	    </tr>
+	    <tr>
+	    	<th>Reason</th>
+	    	<td th:text=" *{reason} ?: '-'"></td>
+	    </tr>
+	    <tr>
+	    	<th>Work Dissemination</th>
+	    	<td th:text=" *{workDissemination} ?: '-'"></td>
+	    </tr>
+	    <tr>
+	    	<th>Contact Details</th>
+	    	<td th:text=" *{contactDetails} ?: '-'"></td>
+	    </tr>
+	    <tr>
+	    	<th>Status</th>
+	    	<td th:text="*{leaveStatus}"></td>
+	    </tr>
+	    <tr>
+	    	<th>Manager's Comments</th>
+	    	<td th:text=" *{managerComments} ?: '-'"></td>
+	    </tr>
+    </table>
+</div>
+</body>
+</html>

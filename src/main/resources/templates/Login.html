@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login Page</title>
+<th:block th:include="layout/Header"></th:block>
+</head>
+<body>
+	<h1>Staff Login</h1>
+	<form th:object="${employee}" th:action="@{/authenticate}" method="post">
+		<p th:if="${#fields.hasErrors('global')}" th:errors="*{global}" class="text-danger"></p>
+		<table>
+			<tr>
+				<td>Employee ID </td>
+				<td><input type="text" th:field="*{empId}"></td>
+				<td><p th:if="${#fields.hasErrors('empId')}" th:errors="*{empId}" class="text-danger"></p></td>
+			</tr>
+			<tr>
+				<td>Password </td>
+				<td><input type="password" th:field="*{pwd}"></td>
+				<td><p th:if="${#fields.hasErrors('pwd')}" th:errors="*{pwd}" class="text-danger"></p></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="left"><input type="submit" value="Login"/></td>
+			</tr>
+		</table>	
+	</form>
+</body>
+</html>

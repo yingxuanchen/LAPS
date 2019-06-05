@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>My Leave History</title>
+<th:block th:include="layout/Header"></th:block>
+<th:block th:include="layout/SideBar"></th:block>
+</head>
+<body>
+<div class="main">
+	<h2>My Leave History</h2>
+	<table class="table table-hover">
+	    <tr>
+	        <th>Start Date</th>
+	        <th>End Date</th>
+	        <th>No. of days</th>
+	        <th>Type</th>
+	        <th>Status</th>
+	        <th></th>
+	    </tr>
+	    <tr th:each="leave : ${leaves}">
+	        <td th:text="${leave.startDate}">1 May 2019</td>
+	        <td th:text="${leave.endDate}">2 May 2019</td>
+	        <td th:text="${leave.numOfDays}">2</td>
+	        <td th:text="${leave.leaveType}">Annual</td>
+	        <td th:text="${leave.leaveStatus}">Applied</td>
+	        <td><a th:href="${'/leave/' + leave.id}">View Details</a></td>
+	    </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>My Leave Balance</title>
+<th:block th:include="layout/Header"></th:block>
+<th:block th:include="layout/SideBar"></th:block>
+</head>
+<body>
+<div class="main">
+	<h2>My Leave Balance</h2>
+	<table class="table">
+	    <tr>
+	        <th>Leave Type</th>
+	        <th>Balance for the year (days)</th>
+	    </tr>
+	    <tr th:each="empLeave : ${empLeaves}">
+	        <td th:text="${empLeave.leaveType}">Annual</td>
+	        <td th:text="${#strings.toString(empLeave.leaveBal)}">18</td>
+	    </tr>
+    </table>
+ </div>
+</body>
+</html>
